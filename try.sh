@@ -13,10 +13,10 @@ mkdir -p $OUTPUT_DIR
 FILE=$1
 
 FILE_NAME=`basename $FILE`
-FILE_NAME_DATE=`echo $FILE_NAME | sed -r "s/^.*_([0-9]+)\.tsv$/\1/"`
+FILE_NAME_DATE=`echo $FILE_NAME | sed -E "s/^.*_([0-9]+)\.tsv$/\1/"`
 
 #echo $FILE_NAME_DATE
-FORMATED_DATE=`date -d "$FILE_NAME_DATE" "+%Y/%m/%d"`
+FORMATED_DATE=`date -j -f "%Y%m%d" "$FILE_NAME_DATE" "+%Y/%m/%d"`
 #echo $FORMATED_DATE
 
 
